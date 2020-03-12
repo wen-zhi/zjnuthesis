@@ -1,0 +1,29 @@
+% In order to keep the main tex (i.e. 'thesis.tex') clean
+% and make your life easier,
+% you can:
+%    - load packages (i.e. \usepackage{foo})
+%    - customize commands
+%    - define new environments
+%    - ...
+% in this file.
+% Have fun! :)
+
+
+%% math
+% math environments
+\newtheorem{definition}{定义}[chapter]
+% math notations
+\renewcommand{\vec}[1]{{\boldsymbol{{#1}}}} % vector
+\newcommand{\mat}[1]{{\boldsymbol{{#1}}}} % matrix
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} % norm of a vector
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+% algorithm env
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\floatname{algorithm}{算法}
+

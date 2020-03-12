@@ -1,0 +1,62 @@
+\clearpage
+
+
+{\centering\bfseries\zihao{3}\kaishu
+    学校代码 \ \uline{\makebox[4em][c]{10345}}
+    \hspace{\fill}
+    研究类型 \ \uline{\makebox[4em][c]{\ResearchType}}
+    \\[70pt]
+}
+
+
+{\centering
+    \includegraphics[scale=0.42]{zjnu-logo}
+    \\[30pt]
+}
+
+
+{\centering\bfseries\zihao{-0}\kaishu
+    硕{\quad}士{\quad}学{\quad}位{\quad}论{\quad}文
+    \\[50pt]
+}
+
+
+% 使用一行标题
+% (标题长度应小于等于 15 个字)
+\begin{table}[h]
+    \centering\bfseries\zihao{-2}\heiti
+    \begin{tabularx}{0.8\linewidth}{l X<{\centering\arraybackslash}}
+        题{\quad}目: &\uline{\hfill\Title\hfill}
+    \end{tabularx}
+\end{table}
+
+
+%% 使用两行标题
+% (标题长度每行不应超过 15 个字)
+%\begin{table}[h]
+%\centering\bfseries\zihao{-2}\heiti
+%    \begin{tabularx}{0.8\linewidth}{l X<{\centering\arraybackslash}}
+%        题{\quad}目: & \uline{\hfill 唐僧在女儿国抒怀并看着 \hfill} \\
+%        & \uline{\hfill 女儿国王的眼睛 \hfill}
+%    \end{tabularx}
+%\end{table}
+
+
+\begin{table}[b]
+    \centering\zihao{3}\bfseries\kaishu
+    \setlength{\extrarowheight}{10pt}
+    \begin{tabularx}{0.9\linewidth}{l X}
+        {学 \quad 科 \quad 专 \quad 业}: & \uline{\hfill \Major \hfill}
+    \end{tabularx}
+    \begin{tabularx}{0.9\linewidth}{p{5.5em} p{4.1em} X p{7em}}
+        {年 \hfill 级}: & \uline{\hfill\Grade 级\hfill} &
+        {\hfill 学{\qquad}号}: & \uline{\hfill \StudentID \hfill} \\
+        {研 \hfill 究 \hfill 生}: & \uline{\hfill \StudentName \hfill} &
+        {\hfill 指导教师}: & \uline{\hfill \Advisor \hfill} \\
+        {中 \hfill 图 \hfill 分 \hfill 类 \hfill 号}: & \uline{\hfill\ChLibID\hfill} &
+        {{\hfill}论\hspace{-1.35pt}文\hspace{-1.35pt}提\hspace{-1.35pt}交\hspace{-1.35pt}时\hspace{-1.35pt}间:}&
+        {\uline{\SubmitYear}\hspace{-0.05pt}年\hspace{-0.05pt}%
+            \uline{\SubmitMonth}\hspace{-0.05pt}月\hspace{-0.05pt}%
+            \uline{\SubmitDay}\hspace{-0.05pt}日}
+    \end{tabularx}
+\end{table}

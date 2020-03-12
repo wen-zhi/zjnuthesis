@@ -1,0 +1,62 @@
+% Zhejiang normal university thesis template
+% Author : wen-zhi
+% Contact: jiwen.life@gmail.com
+
+
+\documentclass[
+    StudentName    = 周星星,                % 姓名
+    StudentNameEng = {{Xingxing Zhou}} ,    % 姓名 (英文)
+    StudentID      = 201720200755,          % 学号
+    Advisor        = 周星驰,                % 指导教师
+    AdvisorEng     = {{Xingchi Zhou}} ,     % 指导教师 (英文)
+    Grade          = 2017,                  % 年级
+    Major          = 计算机科学与技术,       % 专业
+    MajorEng       = {{Computer Science and Technology}} , % 专业(英文)
+    SubmitDate     = 2020-01-01,            % 提交日期 (使用 'YYYY-MM-DD' 格式)
+    SubmitMonEng   = Mar,                   % 提交月份 ('Jan', 'Feb', 'Mar', 'Apr', etc.)
+    ChLibID        = TP391,                 % 中图分类号
+    ResearchType   = 应用研究,               % 研究类型 ('基础研究', '应用研究', 理论研究', etc.)
+    Title          = 演员的自我修养,         % 中文标题
+    TitleEng       = {{stay hungry stay foolish}} % {{英文标题}} (大小写均可)
+]{./style/zjnuthesis}
+
+
+\begin{document}
+
+    \coverstyle
+    % 封面
+    \input{./pages/cover}
+    % 扉页
+    \input{./pages/titlepage}
+
+
+    \prevstyle
+    % 中文摘要
+    \input{./pages/abstract-zh}
+    % 英文摘要
+    \input{./pages/abstract-en}
+    % 目录
+    \clearpage
+    \tableofcontents
+
+
+    \bodystyle
+    % 正文
+    \input{./body/chapter-1} % 第一章
+    \input{./body/chapter-2} % 第二章
+    \input{./body/chapter-3} % 第三章
+
+
+    \poststyle
+    % 参考文献
+    \input{./pages/reference}
+    % 研究成果
+    \input{./pages/cv}
+    % 致谢
+    \input{./pages/thanksto}
+    % 诚信承诺书
+    \input{./pages/commitment}
+    % 独创性声明与授权声明
+    \input{./pages/statement}
+
+\end{document}

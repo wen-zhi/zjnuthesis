@@ -1,0 +1,59 @@
+\chapter{常见问题}
+
+\section{模板的架构设计}
+
+模板的定义代码位于 \texttt{style} 文件夹中。其中：
+\begin{itemize}
+\item \texttt{zjnuthesis.cls} 用于定义模板的风格，载入了模板所必须依赖的宏包
+\item \texttt{customize.tex} 用于存放自定义的命令、放置用户所需的宏包
+\end{itemize}
+
+模板本身所引入的宏包已能够适应绝大多数场景，无需引入额外的宏包。如需引入宏包，推荐放入 \texttt{customize.tex} 中以保持主文件 \texttt{thesis.tex} 的整洁。
+
+\section{论文标题很长时怎么办}
+
+论文标题超过 15 个字时，封面的标题风格可能会不遂人意。能不能让两行都居中显示？
+
+由于难以自动地在合适的地方将标题划分为两个部分，比如：
+
+\begin{table}[h]
+\centering\bfseries\zihao{4}\heiti
+   \begin{tabularx}{0.6\linewidth}{l X<{\centering\arraybackslash}}
+       题{\quad}目: & \uline{\hfill 唐僧在女儿国抒怀并看着女 \hfill} \\
+       & \uline{\hfill 儿国王的眼睛 \hfill}
+   \end{tabularx}
+\end{table}
+
+其效果显然不如：
+
+\begin{table}[h]
+\centering\bfseries\zihao{4}\heiti
+   \begin{tabularx}{0.6\linewidth}{l X<{\centering\arraybackslash}}
+       题{\quad}目: & \uline{\hfill 唐僧在女儿国抒怀并看着 \hfill} \\
+       & \uline{\hfill 女儿国王的眼睛 \hfill}
+   \end{tabularx}
+\end{table}
+
+因此，本模板考虑让用户自行对标题进行划分。即当标题长度大于 15 个字时，可打开 \texttt{pages} 文件夹下的 \texttt{cover.tex} 手动填充标题。具体做法为：
+
+1) 首先注释掉 24-31 行中的使用一行标题的代码 (TeXstudio 中的快捷键为 `\texttt{Ctrl} + \texttt{T}')。
+
+2) 然后解除 34-42 行中的注释 (TeXstudio 中的快捷键为 `\texttt{Ctrl} + \texttt{U}')，并在给出的示范位置中分别填充两行标题的内容。
+
+\section{定理、证明环境怎么定义}
+
+模板并未包含定理环境，如有需要可在 \texttt{./style/customize.tex} 中自定义。实际上，\texttt{customize.tex} 提供了一个\textbf{定义环境}的样例(第 14 行)：
+\begin{verbatim}
+\newtheorem{definition}{定义}[chapter]
+\end{verbatim}
+
+定义新的定理环境其实非常简单，下面给出三个示例，若需使用，将其复制到 \texttt{customize.tex} 中即可：
+
+\begin{verbatim}
+\usepackage{amsthm}  % 提供证明环境 (i.e. \begin{proof}\end{proof})
+\newtheorem{theorem}{定理}[chapter]      % 定理环境
+\newtheorem{proposition}{命题}[chapter]  % 命题环境
+\newtheorem{lemma}{引理}[chapter]        % 引理环境
+\end{verbatim}
+
+如需其它类定理环境，可按照上述模式定义即可。
