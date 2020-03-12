@@ -15,7 +15,7 @@
 
 实际上，使用纯文本编辑器 (比如 \texttt{NotePad++, Sublime Text, VS Code} 等) 就可以编写 \LaTeX 文档。但专业的面向 \LaTeX 的编辑器可以极大地减少新手入门的难度，比如会给出命令提示、可以很方便地配置编译命令、有更加友好的错误提示等。
 
-本文推荐新手可采用多平台且开源的 TeXstudio 作为编辑软件。可从\href{https://github.com/texstudio-org/texstudio/releases/download/2.12.22/texstudio-2.12.22-win-qt5.exe}{这里 (2.12.22 版本)} 下载并安装 Texstudio。
+本文推荐新手可采用多平台且开源的 TeXstudio 作为编辑软件。可从\href{https://github.com/texstudio-org/texstudio/releases/download/2.12.22/texstudio-2.12.22-win-qt5.exe}{这里 (2.12.22 版本)} 下载并安装 TeXstudio。
 
 安装完毕后，在软件主界面的菜单中，依次选择 `\texttt{选项 -> 设置 TeXstudio -> 构建 -> 默认编译器}'，将其调整为 \texttt{XeLaTeX} 后，点击保存即可。
 
@@ -33,15 +33,15 @@
 
 \section{完善编译命令}
 
-尽管上节中已经通过编译得到了最终的主文档，但可能存在超链接点击没反应 (比如点击目录中的项目无法进行跳转)、参考文献无法显示（比如这儿\cite{lecun2015deep}和这儿\cite{krizhevsky_imagenet_2012}）等问题。这是因为仅一次编译无法得到 \texttt{.tex} 文档的所有信息。以参考文献为例，首先要经 \texttt{Biber} 编译文档得到参考文献的辅助文件后，然后再次运行 \texttt{XeLaTeX} 才能将参考文献信息嵌入到最终的文档中。
+尽管上节中已经通过编译得到了最终的主文档，但可能存在超链接点击没反应 (比如点击目录中的项目无法进行跳转)、参考文献无法显示 (比如这儿\cite{lecun2015deep}和这儿\cite{krizhevsky_imagenet_2012}) 等问题。这是因为仅一次编译无法得到 \texttt{.tex} 文档的所有信息。以参考文献为例，首先要经 \texttt{Biber} 编译文档得到参考文献的辅助文件后，然后再次运行 \texttt{XeLaTeX} 才能将参考文献信息嵌入到最终的文档中。
 
-简而言之，需要得到完好的文档 (参考文献正常、超链接正常等) 需要经过多次的编译。编译顺序一般为 \texttt{XeLaTeX + Biber + XeLaTeX + XeLaTeX}。可通过设置 TeXstudio 提供的编译选项自定义多次编译命令，无需手动执行每次编译。
+简而言之，要得到完好的文档 (参考文献正常、超链接正常等) 需要经过多次的编译。编译顺序一般为 \texttt{XeLaTeX + Biber + XeLaTeX + XeLaTeX}。可通过设置 TeXstudio 提供的编译选项自定义多次编译命令，无需手动执行每次编译。
 
 具体操作如下：
 
 1) 依次打开 `\texttt{选项 -> 设置 TeXstudio -> 构建}'，点击「用户命令」中的「添加」，再点击扳手图标
 
-2) 首先删掉右侧的 \texttt{<Unknown>} (如果有)，然后再从左侧依次将 \texttt{XeLaTeX, Biber, XeLaTeX, XeLaTeX, XeLaTeX} 添加到右侧，最后保存即可
+2) 首先删掉右侧的 \texttt{<Unknown>} (如果有)，然后再从左侧依次将 `\texttt{XeLaTeX, Biber, XeLaTeX, XeLaTeX, XeLaTeX, 内置 PDF 阅读器}' 添加到右侧，最后保存即可
 
 \textbf{设置完毕后，可通过 `\texttt{工具 -> 用户}' 执行自定义的编译命令。}此时应能得到最终完好的文档\footnote{注意，不同于本文档，其超链接并没有使用彩色标记}，注意观察上述参考文献的角标已经正常、超链接也均可访问。至此，环境配置彻底完毕，黎明已经到来。
 
@@ -130,13 +130,12 @@
 \subsubsection{公式}
 
 将公式放入 \verb|equation| 环境内，即可被自动编号，同样也可以加标签，方便引用。既可以使用 \LaTeX 原生的 \verb|\ref| 进行引用，比如式~\ref{eq:example}。也可以使用 \verb|\eqref| 进行引用，比如式~\eqref{eq:example}。其差距在于，后者自动加上了一个括号。学校的规范里对选择何种样式没有要求，可依据自己的审美倾向选择喜欢的方式。
-
 \begin{equation}
 \label{eq:example}
 a^2 + b^2 = c^2
 \end{equation}
 
-此外，模板预定义了部分常用但 \LaTeX 本身并未包含的命令，以更方便地书写向量、矩阵等，具体可见表~\ref{table:math}。
+此外，本模板预定义了部分常用但 \LaTeX 本身并未包含的命令，以便更方便地书写向量、矩阵等，具体可见表~\ref{table:math}。
 
 \begin{table}[htb]
     \centering
@@ -146,7 +145,7 @@ a^2 + b^2 = c^2
         命令 & 效果 \\
         \hline
         \verb|\vec| & $\vec{x}, \vec{y}$ \\
-        \verb|\mat| & $\mat{X}, \mat{y}$ \\
+        \verb|\mat| & $\mat{X}, \mat{Y}$ \\
         \verb|\norm| & $\norm{x}, \norm{y}$ \\
         \verb|\argmax| & $\argmax_{x}\mathcal{L}(x)$ \\
         \verb|\argmin| & $\argmax_{x}\mathcal{L}(x)$ \\
@@ -175,7 +174,7 @@ a^2 + b^2 = c^2
 
 \subsection{参考文献}
 
-当需要引用一个文献时，首先通过学术搜索引擎或通过文献管理软件导出该文献的 BibTeX 信息，然后将其复制到 \texttt{bib} 文件下的 \texttt{ref.bib} 文件中。
+当需要引用一个文献时，首先通过学术搜索引擎或通过文献管理软件导出该文献的 BibTeX 信息，然后将其复制到 \texttt{bib} 文件夹下的 \texttt{ref.bib} 文件 (用文本编辑器打开即可) 中。
 
 \begin{figure}[H]
     \centering
@@ -183,17 +182,17 @@ a^2 + b^2 = c^2
     \caption{\label{fig:ref} 找到文献的 BibTeX 信息}
 \end{figure}
 
-例如，通过谷歌学术找到献的 BibTeX 信息 (如图~\ref{fig:ref} 所示) ，将其复制到 \texttt{ref.bib} 中后，即可通过 \verb|\cite{lecun2015deep}| 进行引用，比如\cite{lecun2015deep}。其中 \texttt{lecun2015deep} 为该文献的标签，是其 BibTeX 信息的第一行中所给出的信息。
+例如，通过谷歌学术找到文献的 BibTeX 信息 (如图~\ref{fig:ref} 所示) ，将其复制到 \texttt{ref.bib} 中后，即可通过 \verb|\cite{lecun2015deep}| 进行引用，比如\cite{lecun2015deep}。其中 \texttt{lecun2015deep} 为该文献的标签，是其 BibTeX 信息的第一行中所给出的信息。
 
 而参考文献一章则由模板自动生成，无需使用操心。
 
 \subsection{研究成果}
 
-打开 \texttt{pages} 文件夹下的 \texttt{cv}，填入自己的研究成果即可。
+打开 \texttt{pages} 文件夹下的 \texttt{cv.tex}，填入自己的研究成果即可。
 
 \subsection{致谢}
 
-打开 \texttt{pages} 文件夹下的 \texttt{thanksto}，填入致谢内容即可。
+打开 \texttt{pages} 文件夹下的 \texttt{thanksto.tex}，填入致谢内容即可。
 
 \subsection{诚信承诺书}
 

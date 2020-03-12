@@ -8,7 +8,7 @@
 \item \texttt{customize.tex} 用于存放自定义的命令、放置用户所需的宏包
 \end{itemize}
 
-模板本身所引入的宏包已能够适应绝大多数场景，无需引入额外的宏包。如需引入宏包，推荐放入 \texttt{customize.tex} 中以保持主文件 \texttt{thesis.tex} 的整洁。
+模板本身所引入的宏包已能够适应绝大多数场景，一般情况下无需引入额外的宏包。如需引入宏包，推荐放入 \texttt{customize.tex} 中以保持主文件 \texttt{thesis.tex} 的整洁。
 
 \section{论文标题很长时怎么办}
 
@@ -36,9 +36,9 @@
 
 因此，本模板考虑让用户自行对标题进行划分。即当标题长度大于 15 个字时，可打开 \texttt{pages} 文件夹下的 \texttt{cover.tex} 手动填充标题。具体做法为：
 
-1) 首先注释掉 24-31 行中的使用一行标题的代码 (TeXstudio 中的快捷键为 `\texttt{Ctrl} + \texttt{T}')。
+1) 首先注释掉 \texttt{24-31} 行中的使用一行标题的代码 (TeXstudio 中的注释快捷键为 `\texttt{Ctrl} + \texttt{T}')。
 
-2) 然后解除 34-42 行中的注释 (TeXstudio 中的快捷键为 `\texttt{Ctrl} + \texttt{U}')，并在给出的示范位置中分别填充两行标题的内容。
+2) 然后解除 \texttt{34-42} 行中的注释 (TeXstudio 中的取消注释快捷键为 `\texttt{Ctrl} + \texttt{U}')，并在给出的示范位置中分别填充两行标题的内容。
 
 \section{定理、证明环境怎么定义}
 
@@ -56,4 +56,4 @@
 \newtheorem{lemma}{引理}[chapter]        % 引理环境
 \end{verbatim}
 
-如需其它类定理环境，可按照上述模式定义即可。
+如需其它类定理环境，按照上述模式定义即可。
