@@ -7,6 +7,8 @@
 
 ## 用法
 
+> 本模板不要求使用者有任何 LaTeX 使用经验
+
 1. 配置 LaTeX 环境 (安装 [TexLive 2019](http://mirror.ctan.org/systems/texlive/Images/) 并采用 `XeLaTeX` 进行编译)
 2. [下载模板代码](https://github.com/wen-zhi/zjnuthesis/releases)
 3. 打开 `thesis.tex` 填写**个人信息**
